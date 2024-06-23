@@ -3,8 +3,8 @@ package com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.core.result;
 public class DataResult<T> extends Result{
     private T data;
 
-    public DataResult(boolean isSuccess) {
-        super(isSuccess);
+    public T getData() {
+        return data;
     }
 
     public DataResult(boolean isSuccess,T data) {
