@@ -1,18 +1,10 @@
 package com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.core.connection;
 import com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.entity.Order;
 import org.springframework.stereotype.Service;
-<<<<<<< HEAD
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-=======
-
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-
->>>>>>> e6181560e87d5bcbd56372df6af18753b2509fd3
 @Service
 public class ConnectionManager implements ConnectionService {
     private static ConnectionManager connectionManager=null;
@@ -20,17 +12,10 @@ public class ConnectionManager implements ConnectionService {
     private static final String user="postgres";
     private static final String pwd="*";
 
-<<<<<<< HEAD
-    private ConnectionManager(){}
-
-=======
     private ConnectionManager()
     {
-//        url="jdbc:postgresql://localhost:5432/Northwind";
-//        user="postgres";
-//        pwd="*";
+
     }
->>>>>>> e6181560e87d5bcbd56372df6af18753b2509fd3
     public static ConnectionManager getInstance()
     {
         if (connectionManager == null)
@@ -66,7 +51,6 @@ public class ConnectionManager implements ConnectionService {
 
                     order.setOrderId(rs.getInt("order_id"));
                     order.setCustomerId(rs.getString("customer_id"));
-<<<<<<< HEAD
                     order.setEmloyeeId(rs.getInt("employee_id"));
 
                     SimpleDateFormat dateFormatter=new SimpleDateFormat("dd/MM/yyyy");
@@ -75,9 +59,6 @@ public class ConnectionManager implements ConnectionService {
                     order.setShipName(rs.getString("ship_name"));
                     order.setFreight(rs.getDouble("freight"));
 
-=======
-                    order.setOrderDate(rs.getDate("order_date").toLocalDate());
->>>>>>> e6181560e87d5bcbd56372df6af18753b2509fd3
                     orderList.add(order);
                 }
         } catch (SQLException e) {
