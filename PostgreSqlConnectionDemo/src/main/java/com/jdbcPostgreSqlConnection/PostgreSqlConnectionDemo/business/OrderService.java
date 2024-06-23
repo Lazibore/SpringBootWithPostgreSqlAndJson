@@ -1,9 +1,5 @@
 package com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.business;
-
-import com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.entity.Order;
-
-import java.util.List;
-
+import org.json.JSONArray;
 public interface OrderService {
-    List<Order> orderList();
+    JSONArray orderList();
 }
