@@ -3,13 +3,19 @@ import com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.core.connection.Con
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 @Service
 public class OrderManager implements OrderService{
+
+    private  ConnectionService connectionService;
+
     @Autowired
-    private ConnectionService connectionService;
+    public OrderManager(ConnectionService connectionService) {
+        this.connectionService = connectionService;
+    }
 
     @Override
     public JSONArray orderList() {
-        return connectionService.orderList();
+        return this.connectionService.orderList();
     }
 }
