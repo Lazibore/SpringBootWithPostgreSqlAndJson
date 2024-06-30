@@ -3,4 +3,5 @@ import java.util.List;
 
 public interface GeneralService<T> {
     List<T> getObjectList(String query);
+    Object getObjectById(String query);
 }

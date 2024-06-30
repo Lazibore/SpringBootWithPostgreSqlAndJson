@@ -1,9 +1,8 @@
 package com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.controller;
 import com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.business.GeneralService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -16,7 +15,20 @@ public class OrdersController<T> {
     @GetMapping("/getorders")
     public List<T> getOrders()
     {
-        String getOrderUrl="select * from orders";
+        String getOrderUrl="select ord.order_id, " +
+                "ord.customer_id,ord.order_date, ord.freight,ord.ship_name," +
+                "ord.ship_country from orders as ord";
          return this.generalService.getObjectList(getOrderUrl);
     }
+
+    @GetMapping("/getorderbyid/{id}")
+    public T getObjectById(@PathVariable int id)
+    {
+        String getOrderUrl="select * from orders as ord where ord.order_id="+id;
+        return (T) generalService.getObjectById(getOrderUrl);
+    }
+
+
+
+
 }

@@ -20,6 +20,7 @@ public class JsonArrayToList<T> implements CastService<T>{
     private ConnectionService connectionService;
 
 
+
     public JSONArray getObjectJsonArray(String query) {
         JSONArray result = new JSONArray();
         try {
@@ -66,6 +67,12 @@ public class JsonArrayToList<T> implements CastService<T>{
             throw new RuntimeException(e);
         }
         return Tlist;
+    }
+
+    @Override
+    public Object getObjectById(String query) {
+         Object t = getObjectList(query).getFirst();
+        return t;
     }
 
 }

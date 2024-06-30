@@ -18,4 +18,9 @@ public class GeneralManager<T> implements GeneralService<T> {
         List<T> tList = castService.getObjectList(query);
         return tList;
     }
+
+    @Override
+    public Object getObjectById(String query) {
+        return castService.getObjectById(query);
+    }
 }

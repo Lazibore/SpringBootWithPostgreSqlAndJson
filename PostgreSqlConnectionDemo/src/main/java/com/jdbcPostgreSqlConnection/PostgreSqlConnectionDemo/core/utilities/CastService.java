@@ -5,6 +5,7 @@ import org.json.JSONArray;
 import java.util.List;
 
 public interface CastService<T> {
-    List<T> getObjectList(String query);
     JSONArray getObjectJsonArray(String query);
+    List<T> getObjectList(String query);
+    Object getObjectById(String query);
 }
