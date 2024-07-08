@@ -1,21 +1,28 @@
 package com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.entity;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.annotation.Id;
-import java.time.LocalDate;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
+
+@Table(name="orders")
 public class Order {
 
     @Id
+    @Column ("order_id")
     private int orderId;
 
+    @Column ("customer_id")
     private  String customerId;
 
+    @Column ("customer_id")
     private  int emloyeeId;
 
-//    @JsonFormat(pattern="dd-mm-yyyy")
+    @Column("order_date")
     private String orderDate;
 
+    @Column("ship_name")
     private  String shipName;
 
+    @Column("freight")
     private  double freight;
 
     public Order()

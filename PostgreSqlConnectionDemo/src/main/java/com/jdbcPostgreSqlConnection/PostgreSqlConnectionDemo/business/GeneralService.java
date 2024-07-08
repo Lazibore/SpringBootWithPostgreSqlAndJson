@@ -1,7 +1,9 @@
 package com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.business;
+import com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.core.result.DataResult;
+
 import java.util.List;
 
 public interface GeneralService<T> {
-    List<T> getObjectList(String query);
-    Object getObjectById(String query);
+   DataResult<List<T>>  getObjectList(String query);
+    DataResult<T> getObjectById(String query);
 }

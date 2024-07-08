@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.core.connection.ConnectionManager;
 import com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.core.connection.ConnectionService;
+import com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.core.result.DataResult;
+import com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.core.result.SuccessDataResult;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -70,8 +72,8 @@ public class JsonArrayToList<T> implements CastService<T>{
     }
 
     @Override
-    public Object getObjectById(String query) {
-         Object t = getObjectList(query).getFirst();
+    public T getObjectById(String query) {
+         T t = getObjectList(query).getFirst();
         return t;
     }
 

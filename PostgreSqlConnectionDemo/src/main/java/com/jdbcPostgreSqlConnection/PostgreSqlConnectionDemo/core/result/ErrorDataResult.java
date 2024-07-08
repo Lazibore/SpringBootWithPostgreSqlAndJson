@@ -9,11 +9,11 @@ public class ErrorDataResult<T>  extends DataResult<T>{
         super(false, data);
     }
     public ErrorDataResult(String message) {
-        super(message, false, null);
+        super(false,message, null);
     }
 
     public ErrorDataResult(String message, T data) {
-        super(message, false, data);
+        super(false,message, data);
     }
 
 
