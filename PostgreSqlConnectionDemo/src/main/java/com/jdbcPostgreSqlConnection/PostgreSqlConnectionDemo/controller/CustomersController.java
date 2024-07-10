@@ -28,7 +28,7 @@ public class CustomersController<T> {
     public DataResult<T> getCustomerById(@PathVariable String id)
     {
         String query ="Select * from customers as cst where cst.customer_id='"+id+"'";
-        return new SuccessDataResult<>("Musteri bulundu",(T) generalService.getObjectById(query));
+        return generalService.getObjectById(query);
     }
 
 

@@ -8,4 +8,5 @@ public interface CastService<T> {
     JSONArray getObjectJsonArray(String query);
     List<T> getObjectList(String query);
     T getObjectById(String query);
+    int deleteObjectById(String query);
 }

@@ -1,7 +1,6 @@
 
 package com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.business;
-import com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.core.result.DataResult;
-import com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.core.result.SuccessDataResult;
+import com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.core.result.*;
 import com.jdbcPostgreSqlConnection.PostgreSqlConnectionDemo.core.utilities.CastService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +23,21 @@ public class GeneralManager<T> implements GeneralService<T> {
     public DataResult<T> getObjectById(String query) {
         return new SuccessDataResult<>
                 ("Basariyla Bulundu", (T) castService.getObjectById(query));
+    }
+
+    @Override
+    public Result delObjectById(String query) {
+           int rowsAffected= castService.deleteObjectById(query);
+           String message="Silme islemi basarili";
+           if (rowsAffected ==0)
+           {
+               message="Silme islemi basarisiz";
+               return new ErrorResult(message);
+           }
+           else
+               return new SuccesResult(message);
+
+
     }
 
 

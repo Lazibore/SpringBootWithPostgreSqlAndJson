@@ -21,14 +21,11 @@ public class JsonArrayToList<T> implements CastService<T>{
     @Autowired
     private ConnectionService connectionService;
 
-
-
     public JSONArray getObjectJsonArray(String query) {
         JSONArray result = new JSONArray();
         try {
             ConnectionManager connectionManager = ConnectionManager.getInstance();
-            Connection connection = connectionManager.getConnection();
-            Statement statement = connection.createStatement();
+            Statement statement = connectionManager.getStatement();
             ResultSet resultSet = statement.executeQuery(query);
             ResultSetMetaData md = resultSet.getMetaData();
             int numCols = md.getColumnCount();
@@ -76,5 +73,18 @@ public class JsonArrayToList<T> implements CastService<T>{
          T t = getObjectList(query).getFirst();
         return t;
     }
+
+    public int deleteObjectById(String query) {
+        ConnectionManager connectionManager = ConnectionManager.getInstance();
+        Statement statement = connectionManager.getStatement();
+        int rowsAffected=0;
+        try {
+            rowsAffected = statement.executeUpdate(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return rowsAffected;
+    }
+
 
 }
